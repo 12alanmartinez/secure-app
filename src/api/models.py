@@ -2,6 +2,7 @@ from flask_sqlalchemy import SQLAlchemy
 
 db = SQLAlchemy()
 
+
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(120), unique=True, nullable=False)
@@ -17,3 +18,19 @@ class User(db.Model):
             "email": self.email,
             # do not serialize the password, its a security breach
         }
+
+
+class Characters(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    eyeColor = db.Column(db.String(150), unique=False, nullable=True)
+    hairColor = db.Column(db.String(150), unique=False, nullable=True)
+    skinColor = db.Column(db.String(150), unique=False, nullable=True)
+    height = db.Column(db.Sting(150), unique=False, nullable=True)
+    mass = db.Column(db.String(150), unique=False, nullable=True)
+    birthYear = db.Column(db.Sting(150) unique=False, nullable=True)
+
+# ---------------------------------------------------------------------
+
+
+class planets(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
